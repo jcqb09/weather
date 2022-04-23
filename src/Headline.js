@@ -1,0 +1,1 @@
+// child component to display the text of the news headline

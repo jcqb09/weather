@@ -1,0 +1,1 @@
+// major parent component for all the weather app functionalities

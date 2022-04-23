@@ -1,0 +1,1 @@
+// will display current date and search bar (to enter location)
