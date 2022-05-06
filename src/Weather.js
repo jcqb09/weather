@@ -10,8 +10,8 @@ export default function Weather({ weatherdata }) {
 
   return (
     <>
-      <h3> Current Weather: {weatherdata.current.temp} degrees Fahrenheit</h3>
-      <h3> Feels Like: {weatherdata.current.feels_like} degrees Fahrenheit </h3>
+      <h4> Current Weather: {weatherdata.current.temp} degrees Fahrenheit</h4>
+      <h4> Feels Like: {weatherdata.current.feels_like} degrees Fahrenheit </h4>
 
       {hourly && (
         <Button
