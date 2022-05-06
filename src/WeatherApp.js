@@ -1,7 +1,6 @@
 // major parent component for all the weather app functionalities
 import React, { useEffect } from "react";
 import Header from "./Header";
-import WeatherControls from "./WeatherControls";
 import WeatherFunc from "./WeatherFunc";
 
 export default function WeatherApp() {
@@ -9,7 +8,6 @@ export default function WeatherApp() {
     <>
       <div>
         <h4> Weather Section </h4>
-        <Header />
         <WeatherFunc />
       </div>
     </>

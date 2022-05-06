@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import Weather from "./Weather";
-import { Button } from "@mui/material";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 
 export default function WeatherFunc() {
   const APIKEY = process.env.REACT_APP_weather_key;
@@ -41,7 +40,7 @@ export default function WeatherFunc() {
 
   async function getWeather() {
     //const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=imperial&appid=${APIKEY}`;
-    const api = `https://api.openweathermap.org/data/2.5/onecall?lat=38.029306&lon=-78.4766781&appid=aaccf840839824cd28d5889a27fb7291`;
+    const api = `https://api.openweathermap.org/data/2.5/onecall?lat=38.029306&lon=-78.4766781&&units=imperial&appid=aaccf840839824cd28d5889a27fb7291`;
     const result = await fetch(api);
     const getResult = await result.json();
     setWeather(getResult);

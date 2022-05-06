@@ -4,7 +4,7 @@ import { Card } from "@mui/material";
 import { Button } from "@mui/material";
 import Headline from "./Headline.js";
 
-export default function NewsApp({ daily }, { weekly }) {
+export default function NewsApp() {
   const API_KEY = process.env.REACT_APP_news_key;
   const [dailynews, setDailyNews] = useState([]);
   const [weeklynews, setWeeklyNews] = useState([]);
@@ -42,9 +42,8 @@ export default function NewsApp({ daily }, { weekly }) {
 
   return (
     <>
-      <Card variant="contained">
-        <h4>News Section </h4>
-      </Card>
+      <h4>News Section </h4>
+
       <Button onClick={() => handleClick1()}>
         {" "}
         Show Today's Top Articles{" "}

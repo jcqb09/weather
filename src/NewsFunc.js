@@ -5,7 +5,6 @@ export default function NewsFunc() {
   const API_KEY = process.env.REACT_APP_news_key;
   const [dailynews, setDailyNews] = useState([]);
   const [weeklynews, setWeeklyNews] = useState([]);
-  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     getDailyNews();
