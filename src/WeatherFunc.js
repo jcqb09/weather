@@ -8,37 +8,30 @@ export default function WeatherFunc() {
   const textFieldRef = useRef();
 
   const [clicked, setClicked] = useState(false);
-
-  const coordinates = (loc) => {
-    const url = new URL(`http://api.openweathermap.org/geo/1.0/direct`);
-    url.searchParams.append(`q`, encodeURIComponent(loc));
-    url.searchParams.append(`appid`, APIKEY);
-    console.log(url);
-    return url;
-  };
-
+  const [loc, setLoc] = useState("");
   const [coord, setCoord] = useState([]);
+
   useEffect(() => {
     getCoord();
   }, []);
 
   async function getCoord() {
-    const api = `http://api.openweathermap.org/geo/1.0/direct?q=Charlottesville&appid=388f15cb721d6326cce01495c2d76b17`;
-    //const api = link;
+    const api = `http://api.openweathermap.org/geo/1.0/direct?q=Charlottesville%20VA&appid=aaccf840839824cd28d5889a27fb7291`;
+    //const api = `http://api.openweathermap.org/geo/1.0/direct?q=${loc}&appid=${APIKEY}`;
     const result = await fetch(api);
     const getResult = await result.json();
     setCoord(getResult);
   }
 
-  const forecast = (c) => {
-    const url = new URL(`https://api.openweathermap.org/data/2.5/onecall`);
-    url.searchParams.append(`lat`, c.lat);
-    url.searchParams.append(`lon`, c.lon);
-    url.searchParams.append(`units`, `imperial`);
-    url.searchParams.append(`appid`, APIKEY);
-    console.log(url);
-    return url;
-  };
+  // const forecast = (c) => {
+  //   const url = new URL(`https://api.openweathermap.org/data/2.5/onecall`);
+  //   url.searchParams.append(`lat`, c.lat);
+  //   url.searchParams.append(`lon`, c.lon);
+  //   url.searchParams.append(`units`, `imperial`);
+  //   url.searchParams.append(`appid`, APIKEY);
+  //   console.log(url);
+  //   return url;
+  // };
 
   const [weather, setWeather] = useState([]);
 
@@ -47,8 +40,8 @@ export default function WeatherFunc() {
   }, [coord]);
 
   async function getWeather() {
-    //const api = link;
-    const api = `https://api.openweathermap.org/data/2.5/onecall?lat=38.029306&lon=-78.4766781&units=imperial&appid=aaccf840839824cd28d5889a27fb7291`;
+    //const api = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&units=imperial&appid=${APIKEY}`;
+    const api = `https://api.openweathermap.org/data/2.5/onecall?lat=38.029306&lon=-78.4766781&appid=aaccf840839824cd28d5889a27fb7291`;
     const result = await fetch(api);
     const getResult = await result.json();
     setWeather(getResult);
@@ -75,12 +68,13 @@ export default function WeatherFunc() {
         <Button
           onClick={() => {
             setClicked(true);
-            //const c = coordinates(textFieldRef.current.value);
+            setLoc(encodeURIComponent(textFieldRef.current.value));
+            console.log(loc);
             getCoord();
-            console.log(coord);
+            //console.log(coord);
             //const w = forecast(coord[0]);
             getWeather();
-            console.log(weather);
+            //console.log(weather);
           }}
         >
           {" "}

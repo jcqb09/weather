@@ -4,25 +4,40 @@ import { Card } from "@mui/material";
 import { Button } from "@mui/material";
 import Headline from "./Headline.js";
 
-export default function NewsApp() {
+export default function NewsApp({ daily }, { weekly }) {
   const API_KEY = process.env.REACT_APP_news_key;
-  const [news, setNews] = useState([]);
-  const [clicked, setClicked] = useState(false);
+  const [dailynews, setDailyNews] = useState([]);
+  const [weeklynews, setWeeklyNews] = useState([]);
+  const [clicked1, setClicked1] = useState(false);
+  const [clicked2, setClicked2] = useState(false);
 
   useEffect(() => {
-    getNews();
+    getDailyNews();
+    getWeeklyNews();
   }, []);
 
-  const getNews = async () => {
-    // fetch(
-    //   `https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${API_KEY}`
-    // )
+  const getDailyNews = async () => {
     const result = await fetch(
-      `https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=ZkCQR4y0Q2sHx3UyQx2rIizcijV8eYXx`
+      `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`
     );
     const getResult = await result.json();
-    setNews(getResult);
-    console.log(news);
+    setDailyNews(getResult);
+  };
+
+  const getWeeklyNews = async () => {
+    const result = await fetch(
+      `https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${API_KEY}`
+    );
+    const getResult = await result.json();
+    setWeeklyNews(getResult);
+  };
+
+  const handleClick1 = () => {
+    clicked1 ? setClicked1(false) : setClicked1(true);
+  };
+
+  const handleClick2 = () => {
+    clicked2 ? setClicked2(false) : setClicked2(true);
   };
 
   return (
@@ -30,17 +45,16 @@ export default function NewsApp() {
       <Card variant="contained">
         <h4>News Section </h4>
       </Card>
-      <Button
-        onClick={() => {
-          setClicked(true);
-          //getNews();
-          console.log(news);
-        }}
-      >
-        Top News Articles{" "}
+      <Button onClick={() => handleClick1()}>
+        {" "}
+        Show Today's Top Articles{" "}
       </Button>
-
-      {clicked && news.results.map((headline) => <Headline info={headline} />)}
+      <Button onClick={() => handleClick2()}>
+        {" "}
+        Show This Week's Top Articles{" "}
+      </Button>
+      {clicked1 && dailynews.results.map((info) => <Headline info={info} />)}
+      {clicked2 && weeklynews.results.map((info) => <Headline info={info} />)}
     </>
   );
 }
