@@ -44,11 +44,11 @@ export default function NewsApp() {
     <>
       <h4>News Section </h4>
 
-      <Button onClick={() => handleClick1()}>
+      <Button padding="12px" variant="outlined" onClick={() => handleClick1()}>
         {" "}
         Show Today's Top Articles{" "}
       </Button>
-      <Button onClick={() => handleClick2()}>
+      <Button padding="12px" variant="outlined" onClick={() => handleClick2()}>
         {" "}
         Show This Week's Top Articles{" "}
       </Button>

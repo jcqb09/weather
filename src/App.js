@@ -5,11 +5,13 @@ import Header from "./Header";
 
 function App() {
   return (
-    <>
-      <Header />
-      <WeatherApp />
-      <NewsApp />
-    </>
+    <div style={{ backgroundColor: "gold" }}>
+      <>
+        <Header />
+        <WeatherApp />
+        <NewsApp />
+      </>
+    </div>
   );
 }
 

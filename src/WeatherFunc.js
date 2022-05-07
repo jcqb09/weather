@@ -65,6 +65,7 @@ export default function WeatherFunc() {
           inputRef={textFieldRef}
         />
         <Button
+          variant="outlined"
           onClick={() => {
             setClicked(true);
             setLoc(encodeURIComponent(textFieldRef.current.value));
@@ -80,8 +81,18 @@ export default function WeatherFunc() {
           Enter{" "}
         </Button>
 
-        {clicked && <h2> Weather for {textFieldRef.current.value} </h2>}
-        {clicked && <Weather weatherdata={weather} />}
+        {clicked && (
+          <h2 style={{ textAlign: "center" }}>
+            {" "}
+            Current Weather for {textFieldRef.current.value}{" "}
+          </h2>
+        )}
+        {clicked && (
+          <Weather
+            weatherdata={weather}
+            icon={weather.current.weather[0].icon}
+          />
+        )}
       </div>
     </>
   );
