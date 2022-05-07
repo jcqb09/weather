@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Header() {
   let today = Date.now();
-  console.log(today);
+
   today = new Date(today).toDateString();
   return (
     <>
