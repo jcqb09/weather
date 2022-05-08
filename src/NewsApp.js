@@ -10,6 +10,7 @@ export default function NewsApp() {
   const [weeklynews, setWeeklyNews] = useState([]);
   const [clicked1, setClicked1] = useState(false);
   const [clicked2, setClicked2] = useState(false);
+  const [more, setMore] = useState(false);
 
   useEffect(() => {
     getDailyNews();
@@ -40,6 +41,10 @@ export default function NewsApp() {
     clicked2 ? setClicked2(false) : setClicked2(true);
   };
 
+  const handleMore = () => {
+    more ? setMore(false) : setMore(true);
+  };
+
   return (
     <>
       <h4>News Section </h4>
@@ -52,8 +57,23 @@ export default function NewsApp() {
         {" "}
         Show This Week's Top Articles{" "}
       </Button>
-      {clicked1 && dailynews.results.map((info) => <Headline info={info} />)}
+      {clicked1 &&
+        dailynews.results.map((info, idx) => {
+          if (idx <= 4) {
+            return <Headline info={info} />;
+          }
+        })}
+      {more &&
+        dailynews.results.map((info, idx) => {
+          if (idx > 4) {
+            return <Headline info={info} />;
+          }
+        })}
       {clicked2 && weeklynews.results.map((info) => <Headline info={info} />)}
+      <div>
+        {!more && <Button onClick={() => handleMore()}>Show More</Button>}
+        {more && <Button onClick={() => handleMore()}>Show Less</Button>}
+      </div>
     </>
   );
 }
