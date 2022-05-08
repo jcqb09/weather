@@ -4,9 +4,11 @@ import Hourly from "./Hourly.js";
 import Daily from "./Daily.js";
 import { Button, Card, Grid } from "@mui/material";
 
-export default function Weather({ weatherdata }, { icon }) {
+export default function Weather({ weatherdata }) {
   console.log(weatherdata);
   const [hourly, setHourly] = useState(false); // if true, show hourly forecast, if false, show 5-day forecast
+
+  const src = `http://openweathermap.org/img/wn/${weatherdata.current.weather[0].icon}@2x.png`;
 
   const temp = parseInt(weatherdata.current.temp);
   const fl = parseInt(weatherdata.current.feels_like);
@@ -36,10 +38,7 @@ export default function Weather({ weatherdata }, { icon }) {
         {
           <Grid item xs={20}>
             <Card variant="outlined" className="current">
-              <img
-                src="http://openweathermap.org/img/wn/${icon}@2x.png"
-                alt={weatherdata.current.weather[0].description}
-              />
+              <img src={src} alt={weatherdata.current.weather[0].description} />
               <h2>{temp}&deg;F</h2>
               <p className="text" margin-bottom="10px">
                 {" "}

@@ -4,7 +4,6 @@ import WeatherFunc from "./WeatherFunc";
 import { TextField, Button } from "@mui/material";
 
 export default function WeatherApp() {
-  const APIKEY = process.env.REACT_APP_weather_key;
   const textFieldRef = useRef();
 
   const [clicked, setClicked] = useState();
@@ -21,7 +20,7 @@ export default function WeatherApp() {
           inputRef={textFieldRef}
         />
         <Button
-          variant="outlined"
+          variant="contained"
           onClick={() => {
             setClicked(true);
           }}
@@ -31,7 +30,7 @@ export default function WeatherApp() {
         </Button>
 
         <Button
-          variant="contained"
+          variant="outlined"
           onClick={() => {
             setClicked(false);
           }}
