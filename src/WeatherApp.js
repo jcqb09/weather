@@ -11,7 +11,6 @@ export default function WeatherApp() {
   return (
     <>
       <div>
-        <h4> Weather Section </h4>
         <h4 className="prompt"> Enter the City: </h4>
         <TextField
           id="myTextField"
@@ -40,7 +39,12 @@ export default function WeatherApp() {
       </div>
 
       <div>
-        {clicked && <h1> Current Weather for {textFieldRef.current.value}</h1>}
+        {clicked && (
+          <h1 className="center">
+            {" "}
+            Current Weather for {textFieldRef.current.value}
+          </h1>
+        )}
         {clicked && (
           <WeatherFunc loc={encodeURIComponent(textFieldRef.current.value)} />
         )}

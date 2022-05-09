@@ -37,17 +37,30 @@ export default function Weather({ weatherdata }) {
         {" "}
         {
           <Grid item xs={20}>
-            <Card variant="outlined" className="current">
-              <img src={src} alt={weatherdata.current.weather[0].description} />
-              <h2>{temp}&deg;F</h2>
-              <p className="text" margin-bottom="10px">
+            <Card
+              variant="outlined"
+              className="current"
+              style={{ backgroundColor: "#4B88A2" }}
+            >
+              <div className="center">
+                <img
+                  src={src}
+                  alt={weatherdata.current.weather[0].description}
+                />{" "}
+              </div>
+
+              <h2 className="white-title">{temp}&deg;F</h2>
+              <p className="white" margin-bottom="10px">
                 {" "}
                 {weatherdata.current.weather[0].main} (
                 {weatherdata.current.weather[0].description})
               </p>
-              <p className="text"> feels like: {fl}&deg;F </p>
-              <p className="text"> humidity: {weatherdata.current.humidity}%</p>
-              <p>
+              <p className="white"> feels like: {fl}&deg;F </p>
+              <p className="white">
+                {" "}
+                humidity: {weatherdata.current.humidity}%
+              </p>
+              <p className="white">
                 {" "}
                 sunrise: {rise} sunset: {set}
               </p>

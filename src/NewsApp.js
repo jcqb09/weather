@@ -47,8 +47,6 @@ export default function NewsApp() {
 
   return (
     <>
-      <h4>News Section </h4>
-
       <Button padding="12px" variant="outlined" onClick={() => handleClick1()}>
         {" "}
         Show Today's Top Articles{" "}

@@ -7,7 +7,7 @@ export default function Header() {
   today = new Date(today).toDateString();
   return (
     <>
-      <div>
+      <div className="center">
         <h1>{today}</h1>
       </div>
     </>

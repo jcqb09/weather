@@ -5,7 +5,7 @@ import Header from "./Header";
 
 function App() {
   return (
-    <div style={{ backgroundColor: "gold" }}>
+    <div style={{ backgroundColor: "#F7DAA1" }}>
       <>
         <Header />
         <WeatherApp />
