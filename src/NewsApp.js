@@ -22,6 +22,7 @@ export default function NewsApp() {
       `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${API_KEY}`
     );
     const getResult = await result.json();
+    console.log(getResult);
     setDailyNews(getResult);
   };
 

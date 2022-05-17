@@ -12,6 +12,7 @@ export default function WeatherFunc({ loc }) {
 
   async function getCoord() {
     const api = `http://api.openweathermap.org/geo/1.0/direct?q=${loc}&appid=${APIKEY}`;
+    console.log(api);
     const result = await fetch(api);
     const getResult = await result.json();
     setCoord(getResult);
