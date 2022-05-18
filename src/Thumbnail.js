@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function Thumbnail({ media }) {
   console.log(media);
-  const [src, setSrc] = useState();
   if (media.media.length > 0) {
     console.log(media.media);
     return (

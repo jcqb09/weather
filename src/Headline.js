@@ -4,9 +4,6 @@ import { Card } from "@mui/material";
 import Thumbnail from "./Thumbnail";
 
 export default function Headline({ info }) {
-  const [src, setSrc] = useState();
-  const [img, setImg] = useState(false);
-
   return (
     <>
       <Card>

@@ -12,14 +12,14 @@ export default function Daily({ day }) {
   const lo = parseInt(day.temp.min);
   return (
     <>
-      <Card style={{ backgroundColor: "#4B88A2" }}>
+      <Card style={{ backgroundColor: "#004F6E", height: "25vw" }}>
         <div className="center">
           <img src={src} alt={day.weather[0].description} />
         </div>
         <h3 className="white-title"> {date.toDateString()}</h3>
         <h3 className="white-title">
           {" "}
-          HIGH {hi} LOW {lo}
+          HIGH {hi}&deg;F / LOW {lo}&deg;F
         </h3>
         <p className="white">
           {" "}

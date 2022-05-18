@@ -40,7 +40,7 @@ export default function Weather({ weatherdata }) {
             <Card
               variant="outlined"
               className="current"
-              style={{ backgroundColor: "#4B88A2" }}
+              style={{ backgroundColor: "#004F6E" }}
             >
               <div className="center">
                 <img
@@ -73,6 +73,7 @@ export default function Weather({ weatherdata }) {
       {hourly && (
         <Button
           variant="contained"
+          sx={{ backgroundColor: "#48484a", color: "white" }}
           onClick={() => {
             setHourly(false);
           }}
@@ -98,6 +99,7 @@ export default function Weather({ weatherdata }) {
       {!hourly && (
         <Button
           variant="contained"
+          sx={{ backgroundColor: "#004F6E", color: "white" }}
           onClick={() => {
             setHourly(true);
           }}

@@ -1,7 +1,6 @@
 // major parent component for all the news app functionalities
 import React, { useEffect, useState } from "react";
-import { Card } from "@mui/material";
-import { Button } from "@mui/material";
+import { Button, Card, Grid } from "@mui/material";
 import Headline from "./Headline.js";
 
 export default function NewsApp() {
@@ -56,22 +55,53 @@ export default function NewsApp() {
         {" "}
         Show This Week's Top Articles{" "}
       </Button>
-      {clicked1 &&
-        dailynews.results.map((info, idx) => {
-          if (idx <= 4) {
-            return <Headline info={info} />;
-          }
-        })}
-      {more &&
-        dailynews.results.map((info, idx) => {
-          if (idx > 4) {
-            return <Headline info={info} />;
-          }
-        })}
-      {clicked2 && weeklynews.results.map((info) => <Headline info={info} />)}
+      {clicked1 && (
+        <Grid container spacing={3}>
+          {" "}
+          {dailynews.results.map((info, idx) => {
+            if (idx <= 4) {
+              return (
+                <Grid item xs={24}>
+                  {" "}
+                  <Headline info={info} />{" "}
+                </Grid>
+              );
+            }
+          })}
+        </Grid>
+      )}
+      {more && clicked1 && (
+        <Grid container spacing={3}>
+          {" "}
+          {dailynews.results.map((info, idx) => {
+            if (idx > 4) {
+              return (
+                <Grid item xs={24}>
+                  {" "}
+                  <Headline info={info} />{" "}
+                </Grid>
+              );
+            }
+          })}
+        </Grid>
+      )}
+      {clicked2 && (
+        <Grid container spacing={3}>
+          {" "}
+          {weeklynews.results.map((info) => (
+            <Grid item xs={24}>
+              <Headline info={info} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
       <div>
-        {!more && <Button onClick={() => handleMore()}>Show More</Button>}
-        {more && <Button onClick={() => handleMore()}>Show Less</Button>}
+        {!more && clicked1 && (
+          <Button onClick={() => handleMore()}>Show More</Button>
+        )}
+        {more && clicked1 && (
+          <Button onClick={() => handleMore()}>Show Less</Button>
+        )}
       </div>
     </>
   );

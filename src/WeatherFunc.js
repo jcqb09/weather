@@ -3,7 +3,7 @@ import Weather from "./Weather";
 
 export default function WeatherFunc({ loc }) {
   const APIKEY = process.env.REACT_APP_weather_key;
-
+  const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
   const [coord, setCoord] = useState();
 
   useEffect(() => {
@@ -34,5 +34,15 @@ export default function WeatherFunc({ loc }) {
     setWeather(getResult);
   }
 
-  return <>{weather && <Weather weatherdata={weather} />}</>;
+  return (
+    <>
+      {weather && (
+        <h1 className="center" style={{ color: "#E86C4D" }}>
+          Current Weather for {coord[0].name}, {coord[0].state}{" "}
+          {regionNames.of(coord[0].country)}{" "}
+        </h1>
+      )}
+      <div>{weather && <Weather weatherdata={weather} />}</div>
+    </>
+  );
 }

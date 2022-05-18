@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <>
       <div className="center">
-        <h1>{today}</h1>
+        <h1 style={{ color: "#E86C4D", fontSize: "xxx-large" }}>{today}</h1>
       </div>
     </>
   );

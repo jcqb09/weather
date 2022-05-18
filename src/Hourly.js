@@ -11,7 +11,7 @@ export default function Hourly({ hour }) {
   const temp = parseInt(hour.temp);
   return (
     <div>
-      <Card style={{ backgroundColor: "#4B88A2" }}>
+      <Card style={{ backgroundColor: "#004F6E", height: "20vw" }}>
         <div className="center">
           <img src={src} alt={hour.weather[0].description} />
         </div>
@@ -25,6 +25,7 @@ export default function Hourly({ hour }) {
         <p className="white">
           {hour.weather[0].main} ({hour.weather[0].description})
         </p>
+        <p className="white"> Chance of Precipitation: {hour.pop}%</p>
       </Card>
     </div>
   );
