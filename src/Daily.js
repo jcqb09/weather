@@ -12,7 +12,7 @@ export default function Daily({ day }) {
   const lo = parseInt(day.temp.min);
   return (
     <>
-      <Card style={{ backgroundColor: "#004F6E", height: "25vw" }}>
+      <Card style={{ backgroundColor: "#004F6E", height: "30vw" }}>
         <div className="center">
           <img src={src} alt={day.weather[0].description} />
         </div>
